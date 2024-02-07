@@ -19,14 +19,15 @@ public class SpellChecker {
 		 word1 = word1.toLowerCase();
 		 word2 = word2.toLowerCase();
 
-		 if (word1.charAt(0)== word2.charAt(0)){
-           return levenshtein (tail(word1), tail(word2));
+
+        if( word1.isEmpty() || word2.isEmpty()){
+           return (Math.max(word1.length(),word2.length()));
+        
 	     }
 
-        else if( word1.isEmpty() || word2.isEmpty()){
-           return (Math.max (word1.lenght(),word2.lenght()));
-        
-        } 
+        else if (word1.charAt(0)== word2.charAt(0)) {
+           return levenshtein (tail(word1), tail(word2));
+	     }
 
 	     else {
 
@@ -39,7 +40,7 @@ public class SpellChecker {
 
 		In in = new In(fileName);
 
-		for(int j = 0; j < 3000; j++){
+		for(int j = 0; j< 3000; j++){
 		dictionary[j] = in.readString();
 
 	    }  
